@@ -164,15 +164,15 @@
       }
     },
     "@ckeditor/ckeditor5-editor-classic": {
-      "version": "1.0.0-alpha.1",
-      "resolved": "https://registry.npmjs.org/@ckeditor/ckeditor5-editor-classic/-/ckeditor5-editor-classic-1.0.0-alpha.1.tgz",
-      "integrity": "sha1-XKu1cRkfy15eyRvVhnDlBvgJ3oA=",
+      "version": "1.0.0-alpha.2",
+      "resolved": "https://registry.npmjs.org/@ckeditor/ckeditor5-editor-classic/-/ckeditor5-editor-classic-1.0.0-alpha.2.tgz",
+      "integrity": "sha1-yzv6BSX4yfgJJeBGkl+gZ7Ahzgg=",
       "requires": {
-        "@ckeditor/ckeditor5-core": "1.0.0-alpha.1",
-        "@ckeditor/ckeditor5-engine": "1.0.0-alpha.1",
-        "@ckeditor/ckeditor5-theme-lark": "1.0.0-alpha.1",
-        "@ckeditor/ckeditor5-ui": "1.0.0-alpha.1",
-        "@ckeditor/ckeditor5-utils": "1.0.0-alpha.1"
+        "@ckeditor/ckeditor5-core": "1.0.0-alpha.2",
+        "@ckeditor/ckeditor5-engine": "1.0.0-alpha.2",
+        "@ckeditor/ckeditor5-theme-lark": "1.0.0-alpha.2",
+        "@ckeditor/ckeditor5-ui": "1.0.0-alpha.2",
+        "@ckeditor/ckeditor5-utils": "1.0.0-alpha.2"
       }
     },
     "@ckeditor/ckeditor5-engine": {
@@ -255,11 +255,11 @@
       }
     },
     "@ckeditor/ckeditor5-markdown-gfm": {
-      "version": "1.0.0-alpha.1",
-      "resolved": "https://registry.npmjs.org/@ckeditor/ckeditor5-markdown-gfm/-/ckeditor5-markdown-gfm-1.0.0-alpha.1.tgz",
-      "integrity": "sha1-EgbB0SLXLxRgGhc4iHicvi0fNt8=",
+      "version": "1.0.0-alpha.2",
+      "resolved": "https://registry.npmjs.org/@ckeditor/ckeditor5-markdown-gfm/-/ckeditor5-markdown-gfm-1.0.0-alpha.2.tgz",
+      "integrity": "sha1-lneIqubCne34gp927wKHEs1s57w=",
       "requires": {
-        "@ckeditor/ckeditor5-engine": "1.0.0-alpha.1"
+        "@ckeditor/ckeditor5-engine": "1.0.0-alpha.2"
       }
     },
     "@ckeditor/ckeditor5-paragraph": {
