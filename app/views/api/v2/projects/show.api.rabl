@@ -54,8 +54,12 @@ node :project_type, if: lambda{|project| project.project_type.present?} do |proj
 end
 
 
-node :created_on, if: lambda{|project| project.created_on.present?} {|project| project.created_on.utc.iso8601}
-node :updated_on, if: lambda{|project| project.updated_on.present?} {|project| project.updated_on.utc.iso8601}
+node :created_on, if: lambda{|project| project.created_on.present?} do |project|
+  project.created_on.utc.iso8601
+end
+node :updated_on, if: lambda{|project| project.updated_on.present?} do |project|
+  project.updated_on.utc.iso8601
+end
 
 node :types, if: lambda{|project| project.types.present? } do |project|
   project.types.map do |type|

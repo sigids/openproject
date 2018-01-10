@@ -33,13 +33,23 @@
 object @planning_element
 attributes :id, :subject, :description, :author_id, :project_id, :parent_id, :status_id, :type_id, :priority_id
 
-node :start_date, :if => lambda{|pe| pe.start_date.present?} { |pe| pe.start_date.to_formatted_s(:db) }
-node :due_date, :if => lambda{|pe| pe.due_date.present?} {|pe| pe.due_date.to_formatted_s(:db) }
+node :start_date, :if => lambda { |pe| pe.start_date.present? } do |pe|
+  pe.start_date.to_formatted_s(:db)
+end
+node :due_date, :if => lambda { |pe| pe.due_date.present? } do |pe|
+  pe.due_date.to_formatted_s(:db)
+end
 
-node :created_at, if: lambda{|pe| pe.created_at.present?} {|pe| pe.created_at.utc}
-node :updated_at, if: lambda{|pe| pe.updated_at.present?} {|pe| pe.updated_at.utc}
+node :created_at, if: lambda { |pe| pe.created_at.present? } do |pe|
+  pe.created_at.utc
+end
+node :updated_at, if: lambda { |pe| pe.updated_at.present? } do |pe|
+  pe.updated_at.utc
+end
 
-node :destroyed, id: lambda{|pe| pe.destroyed?} {true}
+node :destroyed, id: lambda { |pe| pe.destroyed? } do
+  true
+end
 
 child :project do
   attributes :id, :identifier, :name
@@ -57,7 +67,7 @@ child :status do
   attributes :id, :name
 end
 
-node :children, unless: lambda{|pe| pe.children.empty?} do |pe|
+node :children, unless: lambda { |pe| pe.children.empty? } do |pe|
   pe.children.to_a.map { |wp| { id: wp.id, subject: wp.subject}}
 end
 
@@ -65,11 +75,11 @@ child :author => :author do
   attributes :id, :name
 end
 
-node :responsible, if: lambda{|pe| pe.responsible.present?} do |pe|
+node :responsible, if: lambda { |pe| pe.responsible.present? } do |pe|
   { id: pe.responsible.id, name: pe.responsible.name }
 end
 
-node :assigned_to, if: lambda{|pe| pe.assigned_to.present?} do |pe|
+node :assigned_to, if: lambda { |pe| pe.assigned_to.present? } do |pe|
   { id: pe.responsible.id, name: pe.responsible.name }
 end
 
@@ -77,7 +87,7 @@ node :custom_fields do
   partial "api/v2/custom_fields/values", :object => (locals[:object] || @planning_element).custom_values
 end
 
-node :journals, if: lambda{|pe| include_journals?} do |pe|
+node :journals, if: lambda { |pe| include_journals? } do |pe|
   pe.journals.map do |journal|
     partial "api/v2/planning_element_journals/journal", object: journal
   end

@@ -33,5 +33,9 @@ child :projects do
 end
 
 
-node :created_at, if: lambda{|project_association| project_association.created_at.present?} {|project_association| project_association.created_at.utc.iso8601}
-node :updated_at, if: lambda{|project_association| project_association.updated_at.present?} {|project_association| project_association.updated_at.utc.iso8601}
+node :created_at, if: lambda { |project_association| project_association.created_at.present? } do |project_association|
+  project_association.created_at.utc.iso8601
+end
+node :updated_at, if: lambda { |project_association| project_association.updated_at.present? } do |project_association|
+  project_association.updated_at.utc.iso8601
+end

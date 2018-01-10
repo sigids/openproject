@@ -50,5 +50,9 @@ node :project_associations, if: lambda{|project| has_associations?(project)} do 
   end
 end
 
-node :created_on, if: lambda{|project| project.created_on.present?} {|project| project.created_on.utc.iso8601}
-node :updated_on, if: lambda{|project| project.updated_on.present?} {|project| project.updated_on.utc.iso8601}
+node :created_on, if: lambda{ |project| project.created_on.present? } do |project|
+  project.created_on.utc.iso8601
+end
+node :updated_on, if: lambda{ |project| project.updated_on.present? } do |project|
+  project.updated_on.utc.iso8601
+end
